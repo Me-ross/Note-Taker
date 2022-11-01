@@ -1,26 +1,29 @@
 const express = require('express');
 const path = require ('path');
-const data = require('./Develop/db/db.json');
+const apiRouter = require('./routes/apiRouter');
+
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+// Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Route for home page (or any wildcard *)
+// mount the appiRouter onto the express app - anytime you see the enpoint /api go get the apiRouter
+app.use('/api', apiRouter);
+
+app.use(express.static('public'));
+
+// Route for home page html (or any wildcard *)
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './public/index.html'));
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 });
-// Route for notes page
-app.get('/notes', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './public/notes.html'));
-});
-
+// Get route for notes html page
 app.get('/api/notes', (req, res) => {
-    res.json(data)
-    console.log(data)
-})
-
-app.listen(3001, () => {
-    console.log('App now running on http://localhost:3001/');
+    res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
+
+app.listen(PORT, () => 
+    console.log(`App now running on http://localhost:${PORT}`)
+);
