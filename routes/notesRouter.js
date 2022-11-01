@@ -18,6 +18,7 @@ notesRouter.post('/', (req, res) => {
   
     // Destructuring assignment for the items in req.body
     const { title, text } = req.body;
+    console.log(req.body);
   
     // If all the required properties are present
     if (title && text ) {
@@ -27,9 +28,9 @@ notesRouter.post('/', (req, res) => {
         text,
         note_id: uuid(),
       };
-  
+      console.log(newNote)
       // Obtain existing notes
-      fs.readFile('../db/db,json', 'utf8', (err, data) => {
+      fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
            console.error(err);
         } else {
@@ -38,7 +39,7 @@ notesRouter.post('/', (req, res) => {
            // Add a new note
           parsedNote.push(newNote);
           // Write updated notes back to the file
-          fs.writeFile('../db/db.json', JSON.stringify(parsedNote),(err) =>
+          fs.writeFile('./db/db.json', JSON.stringify(parsedNote),(err) =>
              err 
              ? console.error(err)
              : console.info('Successfully updated notes!')
