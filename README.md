@@ -34,7 +34,7 @@ The following image shows the note taker landing page and link to take notes:
 The following image shows the notes page:
 ![list of notes](./Assets/11-express-homework-demo-01.png)
 
-## Deployedment
+## Deployment
 
 Note-Taker applicaiton was deployed using Heroku and can be found: [here](https://serene-retreat-00987.herokuapp.com/)
 
