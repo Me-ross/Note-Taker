@@ -38,4 +38,4 @@ The following image shows the notes page:
 
 Note-Taker applicaiton was deployed using Heroku and can be found: [here](https://serene-retreat-00987.herokuapp.com/)
 
-ReRepository for Note-Taker application can be found at: [GitHub](https://github.com/Me-ross/team-profile/Note-Taker)
+ReRepository for Note-Taker application can be found at: [GitHub](https://github.com/Me-ross/Note-Taker)
